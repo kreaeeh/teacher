@@ -1,0 +1,291 @@
+{
+	"variables": [],
+	"info": {
+		"name": "teacher",
+		"_postman_id": "69376eb2-5e1b-2120-b2ea-1e30a5ac2770",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register Teacher",
+			"request": {
+				"url": "localhost:3000/api/auth/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Abdulrahman\",\n\t\"password\":\"1122\",\n\t\"email\":\"abdulrahman4321@gmail.com\"\n}"
+				},
+				"description": "teacher authentication "
+			},
+			"response": []
+		},
+		{
+			"name": "Login Teacher",
+			"request": {
+				"url": "localhost:3000/api/auth/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"abdullah@teacher.io\",\n\t\"password\":\"1122\"\n}"
+				},
+				"description": "as"
+			},
+			"response": []
+		},
+		{
+			"name": "create Homework",
+			"request": {
+				"url": "localhost:3000/api/homework",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImVtYWlsIjoiYWJkdWxsYWhAdGVhY2hlci5pbyIsIm5hbWUiOiJhYmR1bGxhaCIsImlhdCI6MTU0ODE3MTk1OCwiZXhwIjoxNTQ4MjU4MzU4fQ.hvvsuyqRsqeCRFrLvdQwURybLGZF1Vb2stWlmVMG2Lk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Monday Assignement\",\n\t\"description\":\"dasdasd00\"\n}"
+				},
+				"description": "as"
+			},
+			"response": []
+		},
+		{
+			"name": "get homework by id",
+			"request": {
+				"url": {
+					"raw": "localhost:3000/api/homework?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"homework"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImVtYWlsIjoiYWJkdWxsYWhAdGVhY2hlci5pbyIsIm5hbWUiOiJhYmR1bGxhaCIsImlhdCI6MTU0ODE3MTk1OCwiZXhwIjoxNTQ4MjU4MzU4fQ.hvvsuyqRsqeCRFrLvdQwURybLGZF1Vb2stWlmVMG2Lk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Monday Assignement\",\n\t\"description\":\"dasdasd00\"\n}"
+				},
+				"description": "as"
+			},
+			"response": []
+		},
+		{
+			"name": "get homeworks",
+			"request": {
+				"url": "localhost:3000/api/homework",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImVtYWlsIjoiYWJkdWxsYWhAdGVhY2hlci5pbyIsIm5hbWUiOiJhYmR1bGxhaCIsImlhdCI6MTU0ODE3MTk1OCwiZXhwIjoxNTQ4MjU4MzU4fQ.hvvsuyqRsqeCRFrLvdQwURybLGZF1Vb2stWlmVMG2Lk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Monday Assignement\",\n\t\"description\":\"dasdasd00\"\n}"
+				},
+				"description": "as"
+			},
+			"response": []
+		},
+		{
+			"name": "Get student list",
+			"request": {
+				"url": "localhost:3000/api/student",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmR1bHJhaG1hbjQzMjFAZ21haWwuY29tIiwibmFtZSI6IkFiZHVscmFobWFuIiwiaWF0IjoxNTQ4MTY5NTM2LCJleHAiOjE1NDgyNTU5MzZ9.95rex4LmvXPu15I8Y2KXKcJMzjb1Kh-IhWYX0jSbji0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Monday Assignement\",\n\t\"description\":\"dasdasd00\"\n}"
+				},
+				"description": "Get list of student from the student app"
+			},
+			"response": []
+		},
+		{
+			"name": "Assign homework to student",
+			"request": {
+				"url": "localhost:3000/api/assignment",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsImVtYWlsIjoiYWJkdWxsYWhAdGVhY2hlci5pbyIsIm5hbWUiOiJhYmR1bGxhaCIsImlhdCI6MTU0ODE3MTk1OCwiZXhwIjoxNTQ4MjU4MzU4fQ.hvvsuyqRsqeCRFrLvdQwURybLGZF1Vb2stWlmVMG2Lk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"homework_id\":\"1\",\n\t\"students\":[1,4]\n}"
+				},
+				"description": "Assigning homwork to a student\n\nTeacher will choose a list of students ids who he is going to assing the course to them."
+			},
+			"response": []
+		},
+		{
+			"name": "Get assignment by student id (for student app use)",
+			"request": {
+				"url": {
+					"raw": "localhost:3000/api/assignment?student_id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"assignment"
+					],
+					"query": [
+						{
+							"key": "student_id",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "x-access-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJhYmR1bHJhZGhtYW40ZDMyMUBnbWFpbC5jb20iLCJuYW1lIjoiQWJkdWxyYWhtYW4iLCJpYXQiOjE1NDgwMDg2MzcsImV4cCI6MTU0ODA5NTAzN30.GdiCHuvKnBUTOXphAaSLJ-Sr2ML5PbCW-nWPXBEaanU",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmR1bHJhaG1hbjQzMjFAZ21haWwuY29tIiwibmFtZSI6IkFiZHVscmFobWFuIiwiaWF0IjoxNTQ4MTQwNjE1LCJleHAiOjE1NDgyMjcwMTV9.7qE3X4f5fYIYzbpMi1TMKkh-RcailBgfl0wgVXnvrUM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"homework_id\":\"1\",\n\t\"students\":1\n}"
+				},
+				"description": "Assigning homwork to a student\n\nTeacher will choose a list of students ids who he is going to assing the course to them."
+			},
+			"response": []
+		},
+		{
+			"name": "Submit assignemnt ( for student app use)",
+			"request": {
+				"url": {
+					"raw": "localhost:3000/api/assignment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"assignment"
+					],
+					"query": [
+						{
+							"key": "x-access-token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJhYmR1bHJhZGhtYW40ZDMyMUBnbWFpbC5jb20iLCJuYW1lIjoiQWJkdWxyYWhtYW4iLCJpYXQiOjE1NDgwMDg2MzcsImV4cCI6MTU0ODA5NTAzN30.GdiCHuvKnBUTOXphAaSLJ-Sr2ML5PbCW-nWPXBEaanU",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmR1bHJhaG1hbjQzMjFAZ21haWwuY29tIiwibmFtZSI6IkFiZHVscmFobWFuIiwiaWF0IjoxNTQ4MTQwNjE1LCJleHAiOjE1NDgyMjcwMTV9.7qE3X4f5fYIYzbpMi1TMKkh-RcailBgfl0wgVXnvrUM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assignment_id\":\"1\",\n\t\"submitted\":true\n}"
+				},
+				"description": "Assigning homwork to a student\n\nTeacher will choose a list of students ids who he is going to assing the course to them."
+			},
+			"response": []
+		}
+	]
+}
