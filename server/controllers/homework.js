@@ -3,6 +3,12 @@ const authController = require('../controllers/authentication');
 
 
 module.exports = {
+    /**
+     * Function/Module Name : createHomework
+     * Purpose : this function is for the teacher to create a homework
+     * Input: request, response
+     * Output :  {code : 200 /400, data: []}
+     **/
     createHomework(req, res) {
         // Check if user exists
         const token = req.headers['x-access-token'];
@@ -29,6 +35,12 @@ module.exports = {
                 });//should be handled further by identifying the errors and returning meaning full error code
         }
     },
+    /**
+     * Function/Module Name : getHomework
+     * Purpose : this function is to get one or many homeworks
+     * Input: request, response
+     * Output :  {code : 200 /400, data: []}
+     **/
     getHomework(req, res) {
         // Check if user exists
         const token = req.headers['x-access-token'];

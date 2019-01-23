@@ -14,10 +14,16 @@ module.exports = (app) => {
 
 
     //Authentication
+    /**
+     * Register a teacher account
+     */
     app.post('/api/auth/register', (req, res) => {
         authController.createUser(req, res);
     })
-    app.post('/api/auth/login', authController.findOne)
+    /**
+     * login
+     */
+    app.post('/api/auth/login', authController.login)
 
     //logout not needed beccause token can be removed from front-end). However, it is needed when server need to maintian multiple sessions
     app.get('/api/auth/logout', (req, res) => res.status(200).send({
@@ -25,22 +31,41 @@ module.exports = (app) => {
         token: null,
         message: 'Logout successfully!'
     }));
-    app.get('/api/auth/profile', authController.getProfile)
+
+
+    /**
+     * create homework
+     */
     app.post('/api/homework', (req, res) => {
         homeworkController.createHomework(req, res);
     })
+    /**
+     * get homework by id or homwork list
+     */
     app.get('/api/homework', (req, res) => {
         homeworkController.getHomework(req, res);
     })
+    /**
+     * assign homework to students
+     */
     app.post('/api/assignment', (req, res) => {
         assignmentController.assignHomeworkToStudent(req, res);
     })
+    /**
+     * get assignments by student id
+     */
     app.get('/api/assignment', (req, res) => {
         assignmentController.getAssignmentByStudentId(req, res);
     })
+    /**
+     * submit an assignment through the student app
+     */
     app.put('/api/assignment', (req, res) => {
         assignmentController.submitAssignment(req, res)
     })
+    /**
+     * get student list from student app
+     */
     app.get('/api/student', (req, res) => {
         studentController.getStudentList(req, res);
     })

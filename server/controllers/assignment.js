@@ -4,7 +4,14 @@ const authController = require('../controllers/authentication');
 const hashConfig = require('../config/hashConfig');
 
 module.exports = {
-// need to refactor
+
+
+    /**
+     * Function/Module Name : assignHomeworkToStudent
+     * Purpose : this function is to assign a homework to list of students
+     * Input: request, response
+     * Output :  {code : 200 /400, data: []}
+     **/
     assignHomeworkToStudent(req, res) {
         // Check if user exists
         const token = req.headers['x-access-token'];
@@ -106,6 +113,12 @@ module.exports = {
         }
     },
 
+    /**
+     * Function/Module Name : getAssignmentByStudentId
+     * Purpose : this function for student app use. The student app will get all assignment assigned to the student.
+     * Input: request, response
+     * Output :  {code : 200 /400, data: []}
+     **/
     getAssignmentByStudentId(req, res) {
         // Check if user exists
         const token = req.headers['x-access-token'];
@@ -137,7 +150,12 @@ module.exports = {
         }
 
     },
-
+    /**
+     * Function/Module Name : submitAssignment
+     * Purpose : this function is for the student app to submit an assignment
+     * Input: request, response
+     * Output :  {code : 200 /400, data: []}
+     **/
     submitAssignment(req, res) {
         // Check if user exists
         const token = req.headers['x-access-token'];

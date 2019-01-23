@@ -3,6 +3,12 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const config = require('../config/hashConfig');
 
+/**
+ * Function/Module Name : validateToken
+ * Purpose : to validate jwt token send in the header and decode it
+ * Input: token
+ * Output :  validationObj
+ **/
 const validateToken = (token) => {
     console.log(token);
     const obj = {isAuthenticated: false, message: ''}
@@ -24,6 +30,12 @@ const validateToken = (token) => {
 }
 
 module.exports = {
+    /**
+     * Function/Module Name : createUser
+     * Purpose : to create user/ register into the database through api request
+     * Input: request, response
+     * Output :  response
+     **/
     createUser(req, res) {
         // Check if user exists
         const validation = this.validateRegistration(req.body);
@@ -58,7 +70,13 @@ module.exports = {
         }
 
     },
-    findOne(req, res) {
+    /**
+     * Function/Module Name : login
+     * Purpose : to authenticate user and return the jwt token
+     * Input: request, response
+     * Output :  {auth : true/false, token: jwt-token}
+     **/
+    login(req, res) {
         if (!req.body.email) {
             return res.status(401).send({auth: false, token: null, message: 'No username nor email is provided'});
         }
@@ -86,31 +104,13 @@ module.exports = {
             });//should be handled further by identifying the errors and returning meaning full error code
 
     },
-    getProfile(req, res) {
-        console.log('here');
-        const token = req.headers['x-access-token'];
-        console.log(token);
-        if (!token) return res.status(401).send({auth: false, message: 'No token provided.'});
-        jwt.verify(token, config.secret, function (err, decoded) {
-            if (err) {
-                return res.status(403).send({auth: false, message: 'Failed to authenticate token.'})
-            } else {
-                seller.findById(decoded.id, {attributes: ['id', 'username', 'email', 'name', 'contact', 'country', 'passport']})
-                    .then(seller => {
-                        if (seller) {
-                            return res.status(200).send(seller)
-                        } else {
-                            return res.status(404).send("no user found")
-                        }
-                    })
-                    .catch(err => {
-                        return res.status(500).send(err)
-                    })
-            }
 
-        });
-
-    },
+    /**
+     * Function/Module Name : validateRegistration
+     * Purpose : to validate the registration body and confirm that all required fields are ther
+     * Input: request, response
+     * Output :  {auth : true/false, token: jwt-token}
+     **/
     validateRegistration(body) {
         const validateObj = {isAuthenticated: false, errors: []};
         if (body) {

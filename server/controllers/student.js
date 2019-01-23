@@ -4,6 +4,12 @@ const hashConfig = require('../config/hashConfig');
 const rp = require('request-promise');
 
 module.exports = {
+    /**
+     * Function/Module Name : getStudentList
+     * Purpose : this function is to get student list from the student app
+     * Input: request, response
+     * Output :  {code : 200 /400, data: []}
+     **/
     getStudentList(req, res) {
         // Check if user exists
         const token = req.headers['x-access-token'];

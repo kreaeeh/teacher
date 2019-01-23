@@ -23,6 +23,7 @@ npm start
 
 ## 4) import teacher_postman_collection.json into your local post man to test the api
 ```
+postman/teacher.postman_collection.json
 ```
 
 ## 5) Please note that this app is connected to the student app. Some end points won't work if you are not running both
