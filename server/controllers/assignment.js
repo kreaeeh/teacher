@@ -65,6 +65,12 @@ module.exports = {
                                 });
                         } else {
                             assignmentModel.create(assignment)
+                                .then(response => {
+                                        return res.status(201).send({
+                                            code: 201,
+                                            message: 'homework was assigned to students successfully'
+                                        });
+                                    })
                                 .catch(err => {
                                     console.log(err);
                                     return res.status(401).send({
